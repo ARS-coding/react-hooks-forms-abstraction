@@ -18,18 +18,31 @@ function Form() {
     });
   }
 
+  function handleChange(event) {
+    // name is the KEY in of the formData object we're trying to update
+    const name = event.target.name;
+    const value = event.target.value;
+  
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  } 
+
   return (
     <form>
       <input
         type="text"
-        onChange={handleFirstNameChange}
+        name="firstName"
         value={formData.firstName}
+        onChange={handleChange}
       />
       <input
         type="text"
-        onChange={handleLastNameChange}
+        name="lastName"
         value={formData.lastName}
-      />
+        onChange={handleChange}
+      /> 
     </form>
   );
 } 
